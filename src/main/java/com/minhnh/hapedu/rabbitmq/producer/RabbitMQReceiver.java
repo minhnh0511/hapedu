@@ -7,28 +7,32 @@ import org.springframework.stereotype.Service;
 @Service
 public class RabbitMQReceiver {
     @RabbitListener(queues = RabbitMQConfig.DIRECT_QUEUE_NAME)
-    public String receiveDirectMessage(String message) {
-        return String.format("Direct message: %s", message);
+    public void receiveDirectMessage(String message) {
+        String res = String.format("Direct message: %s", message);
+        System.out.println(res);
     }
 
     @RabbitListener(queues = RabbitMQConfig.FANOUT_QUEUE_NAME)
-    public String receiveFanoutMessage(String message) {
-        System.out.printf("Fanout message: %s%n", message);
-        return String.format("Fanout message: %s", message);
+    public void receiveFanoutMessage(String message) {
+        String res = String.format("Fanout message: %s%n", message);
+        System.out.println(res);
     }
 
     @RabbitListener(queues = RabbitMQConfig.SHARP_TOPIC_QUEUE_NAME)
-    public String receiveSharpTopicMessage(String message) {
-        return String.format("Sharp Topic message: %s", message);
+    public void receiveSharpTopicMessage(String message) {
+        String res = String.format("Sharp Topic message: %s", message);
+        System.out.println(res);
     }
 
     @RabbitListener(queues = RabbitMQConfig.DOT_TOPIC_QUEUE_NAME)
-    public String receiveDotTopicMessage(String message) {
-        return String.format("Dot Topic message: %s", message);
+    public void receiveDotTopicMessage(String message) {
+        String res = String.format("Dot Topic message: %s", message);
+        System.out.println(res);
     }
 
     @RabbitListener(queues = RabbitMQConfig.HEADER_QUEUE_NAME)
-    public String receiveHeaderMessage(String message) {
-        return String.format("Header message: %s", message);
+    public void receiveHeaderMessage(String message) {
+        String res = String.format("Header message: %s", message);
+        System.out.println(res);
     }
 }

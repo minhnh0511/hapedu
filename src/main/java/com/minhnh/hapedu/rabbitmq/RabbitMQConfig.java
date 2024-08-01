@@ -1,6 +1,8 @@
 package com.minhnh.hapedu.rabbitmq;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -99,5 +101,11 @@ public class RabbitMQConfig {
     @Bean
     Binding headerBinding(Queue headerQueue, HeadersExchange headerExchange) {
         return BindingBuilder.bind(headerQueue).to(headerExchange).where("headerKey").matches("headerValue");
+    }
+
+    // RabbitTemplate Configuration
+    @Bean
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+        return new RabbitTemplate(connectionFactory);
     }
 }

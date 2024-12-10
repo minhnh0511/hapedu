@@ -15,7 +15,7 @@
 	<description>ShoeStore</description>
 	<properties>
 		<java.version>17</java.version>
-		<aws-java-sdk.version>1.12.691</aws-java-sdk.version>
+		<aws-java-sdk.version>1.12.778</aws-java-sdk.version>
 	</properties>
 	<dependencies>
 		<dependency>
